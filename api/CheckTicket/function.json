@@ -1,0 +1,29 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route": "check"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "name": "devices",
+      "type": "cosmosDB",
+      "direction": "in",
+      "databaseName": "testswa",
+      "collectionName": "eventi",
+      "sqlQuery": "SELECT c.nome, c.biglietti FROM c",
+      "connectionStringSetting": "CosmosDBConnection"    
+    }
+  ]
+}
